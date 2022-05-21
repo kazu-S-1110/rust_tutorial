@@ -1,7 +1,11 @@
 mod foo;
 
+use crate::foo::fuga::fuga_func;
+use foo::bar as hoge;
+
 fn main() {
     println!("Hello, world!");
     foo::foo_fn();
-    foo::bar::bar_fn();
+    hoge::bar_fn();
+    fuga_func();
 }
