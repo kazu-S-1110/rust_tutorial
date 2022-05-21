@@ -3,6 +3,7 @@ mod foo;
 use crate::foo::fuga::fuga_func;
 use foo::bar as hoge;
 use std::collections::HashMap;
+use crate::foo::owner_ship::ownership::{gives_ownership, makes_copy, takes_ownership};
 
 fn main() {
     println!("Hello, world!");
@@ -41,5 +42,22 @@ fn main() {
     println!("this is hashmap result : {}", map["x"]);
     for (k, v) in &map {
         println!("key: {} , value: {}", k, v);
+    }
+
+    //ownership
+    // stringは借用権が移動してしまう
+    let s = String::from("hello");
+    takes_ownership(s);
+    // println!("{}", s); //value borrowed here after move
+
+    //integerは大丈夫
+    let x = 5;
+    makes_copy(x);
+    // println!("{}", x); //ok
+
+    //所有権は受け取ることも可能
+    {
+        let s1 = gives_ownership();
+        println!("{}", s1)
     }
 }
