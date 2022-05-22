@@ -69,4 +69,19 @@ fn main() {
 
     change_string(&mut s1);
     println!("{}", s1);
+
+    // 可変な参照を作成する際の注意点
+    {
+        let mut a = 10; // mutable object
+        let a_mut_ref = &mut a; // mutable reference
+        let a_mut_ref_move = a_mut_ref; // move mutable reference
+                                        // print!("{}", a_mut_ref);        // borrow check!! - Error!
+    }
+    // 不変束縛変数から可変束縛変数に変える
+    {
+        let a = String::from("guhe");
+        let mut b = a;
+        b.push_str(" huge");
+        println!("{}", b)
+    }
 }
