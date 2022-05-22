@@ -11,4 +11,14 @@ pub mod ownership {
         let some_string = String::from("hello");
         some_string
     }
+
+    // 借用を行う（所有権を移動しない）
+    pub fn dont_move_ownership(s: &str) -> usize {
+        s.len()
+    }
+
+    //可変にして参照を受け取る
+    pub fn change_string(some_string: &mut String) {
+        some_string.push_str(" is Best!");
+    }
 }

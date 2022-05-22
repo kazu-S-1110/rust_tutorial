@@ -1,9 +1,11 @@
 mod foo;
 
 use crate::foo::fuga::fuga_func;
+use crate::foo::owner_ship::ownership::{
+    change_string, dont_move_ownership, gives_ownership, makes_copy, takes_ownership,
+};
 use foo::bar as hoge;
 use std::collections::HashMap;
-use crate::foo::owner_ship::ownership::{gives_ownership, makes_copy, takes_ownership};
 
 fn main() {
     println!("Hello, world!");
@@ -60,4 +62,11 @@ fn main() {
         let s1 = gives_ownership();
         println!("{}", s1)
     }
+
+    let mut s1 = String::from("Rust");
+    let len = dont_move_ownership(&s1); //参照渡しすることで所有権を渡さない(借用という)
+    println!("the length of {} is {}", s1, len);
+
+    change_string(&mut s1);
+    println!("{}", s1);
 }
