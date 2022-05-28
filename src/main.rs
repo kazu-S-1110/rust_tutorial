@@ -1,15 +1,8 @@
-#![feature(test)]
-extern crate test;
+// #![feature(test)]
+// extern crate test;
 
 mod foo;
-
-use crate::foo::fuga::fuga_func;
-use crate::foo::owner_ship::ownership::{
-    change_string, dont_move_ownership, gives_ownership, makes_copy, takes_ownership,
-};
-use foo::bar as hoge;
-use std::collections::HashMap;
-use std::env::split_paths;
+mod stack_heap;
 
 fn main() {
     // println!("Hello, world!");
@@ -117,15 +110,16 @@ fn main() {
     //     }
     // }
     // double_check(cs);
+    stack_heap::stack_heap::run()
 }
 
-#[cfg(test)]
-mod tests {
-    use crate::foo::fibo;
-    use test::Bencher;
-
-    #[bench]
-    fn bench_fibo(b: &mut Bencher) {
-        b.iter(|| fibo());
-    }
-}
+// #[cfg(test)]
+// mod tests {
+//     use crate::foo::fibo;
+//     use test::Bencher;
+//
+//     #[bench]
+//     fn bench_fibo(b: &mut Bencher) {
+//         b.iter(|| fibo());
+//     }
+// }
