@@ -20,4 +20,10 @@ pub fn run() {
     v1.append(&mut v3); //vectorにほかのVecを追加する、追加したVecは移動する
     println!("{:?}", v1); //[10, 2, 3, 4, 9, 10]
     println!("{:?}", v3); //[]
+
+    let t1: (i64, String) = (10, String::from("hello"));
+    println!("stack address of tuple data is {:p}", &t1);
+    println!("heap memory address of t1.1 is {:?}", &t1.1.as_ptr());
+    println!("len of t1.1 is {}", &t1.1.len());
+    println!("capacity of t1.1 is {}", &t1.1.capacity());
 }
