@@ -26,4 +26,10 @@ pub fn run() {
     println!("heap memory address of t1.1 is {:?}", &t1.1.as_ptr());
     println!("len of t1.1 is {}", &t1.1.len());
     println!("capacity of t1.1 is {}", &t1.1.capacity());
+
+    //     ボックスポインターへ格納
+    let mut b1: Box<(i64, String)> = Box::new(t1);
+    //     mutを付与して参照外しができるのでデータの加工ができる
+    (*b1).1 += " world";
+    // println!("{:?} ", b1.0) なぜか呼び出しができない、値がprivateって言われた。
 }
