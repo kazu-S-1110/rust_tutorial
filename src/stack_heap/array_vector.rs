@@ -31,5 +31,5 @@ pub fn run() {
     let mut b1: Box<(i64, String)> = Box::new(t1);
     //     mutを付与して参照外しができるのでデータの加工ができる
     (*b1).1 += " world";
-    // println!("{:?} ", b1.0) なぜか呼び出しができない、値がprivateって言われた。
+    // println!("{} ", b1.0) //なぜか呼び出しができない、値がprivateって言われた。
 }
